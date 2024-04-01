@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+
+@foreach (var item in burak.Models.Data.SiteAyar)
+{
+    <div class="logofooter"> @item.SiteAdi</div>
+    <p><i class="fa fa-map-pin"></i>Adres : @item.SiteAdres</p>
+    <p><i class="fa fa-phone"></i>Telefon (Phone) : @item.SiteTelefon</p>
+    <p><i class="fa fa-envelope"></i>E-mail : @item.SiteİnfoMail</p>
+
+}

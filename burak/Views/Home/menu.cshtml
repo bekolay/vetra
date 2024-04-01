@@ -1,0 +1,59 @@
+﻿@model veri.Menu
+@{
+    ViewBag.Title = ViewBag.Adi;
+}
+
+@if (Model.Resim == null)
+{
+    <div class="container">
+
+        <div class="aboutus-area">
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <br />
+                        <div class="container">
+                            <div class="aboutus-content ">
+                                <h2 class="text-center">
+                                    <span>@ViewBag.adi</span>
+                                </h2>
+                                <br />
+                                <p>@Html.Raw(Model.Yazi)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="container">
+
+        <div class="aboutus-area">
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="">
+                            <div class="aboutus-image"><img src="~/dosya/@Model.Resim" alt="@ViewBag.adi"></div>
+                        </div>
+                        <br />
+                        <div class="container">
+                            <div class="aboutus-content ">
+                                <h2 class="text-center">
+                                    <span>@ViewBag.adi</span>
+                                </h2>
+                                <br />
+                                <p>@Html.Raw(Model.Yazi)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+

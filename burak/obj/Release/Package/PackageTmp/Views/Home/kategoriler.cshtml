@@ -1,0 +1,58 @@
+﻿@model veri.Kategoriler
+@{
+    ViewBag.Title = Model.kategoriAdi;
+}
+
+@if (Model.KategoriResim == null)
+{
+    <div class="container">
+
+        <div class="aboutus-area">
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="container">
+                            <div class="aboutus-content ">
+                                <h2 class="text-center">
+                                    <span>@Model.kategoriAdi</span>
+                                </h2>
+                                <br />
+                                <p>@Html.Raw(Model.KategoriYazi)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="container">
+
+        <div class="aboutus-area">
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="">
+                            <div class="aboutus-image"><img src="~/dosya/@Model.KategoriResim" alt="@Model.kategoriAdi"></div>
+                        </div>
+                        <br />
+                        <div class="container">
+                            <div class="aboutus-content ">
+                                <h2 class="text-center">
+                                    <span>@Model.kategoriAdi</span>
+                                </h2>
+                                <br />
+                                <p>@Html.Raw(Model.KategoriYazi)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+

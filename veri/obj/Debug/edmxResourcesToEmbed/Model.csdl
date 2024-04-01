@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="burakModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminRol">
+    <Key>
+      <PropertyRef Name="KullaniciRolid" />
+    </Key>
+    <Property Name="KullaniciRolid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RolAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RolTarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RolAktifMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kullanicilars" Relationship="burakModel.FK_Kullanicilar_AdminRol" FromRole="AdminRol" ToRole="Kullanicilar" />
+  </EntityType>
+  <EntityContainer Name="burakEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminRols" EntityType="Self.AdminRol" />
+    <EntitySet Name="Menus" EntityType="burakModel.Menu" />
+    <EntitySet Name="Kategorilers" EntityType="burakModel.Kategoriler" />
+    <EntitySet Name="Menulers" EntityType="burakModel.Menuler" />
+    <AssociationSet Name="FK_Kategoriler_Menuler" Association="burakModel.FK_Kategoriler_Menuler">
+      <End Role="Menuler" EntitySet="Menulers" />
+      <End Role="Kategoriler" EntitySet="Kategorilers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Menuler" Association="burakModel.FK_Menu_Menuler">
+      <End Role="Menuler" EntitySet="Menulers" />
+      <End Role="Menu" EntitySet="Menus" />
+    </AssociationSet>
+    <EntitySet Name="Sliders" EntityType="burakModel.Slider" />
+    <EntitySet Name="SiteAyars" EntityType="burakModel.SiteAyar" />
+    <EntitySet Name="Hizmetlers" EntityType="burakModel.Hizmetler" />
+    <EntitySet Name="Kullanicilars" EntityType="burakModel.Kullanicilar" />
+    <AssociationSet Name="FK_Kullanicilar_AdminRol" Association="burakModel.FK_Kullanicilar_AdminRol">
+      <End Role="AdminRol" EntitySet="AdminRols" />
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hizmetler_Kullanicilar" Association="burakModel.FK_Hizmetler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="Hizmetler" EntitySet="Hizmetlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kategoriler_Kullanicilar" Association="burakModel.FK_Kategoriler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="Kategoriler" EntitySet="Kategorilers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Kullanicilar" Association="burakModel.FK_Menu_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="Menu" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menuler_Kullanicilar" Association="burakModel.FK_Menuler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="Menuler" EntitySet="Menulers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteAyar_Kullanicilar" Association="burakModel.FK_SiteAyar_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="SiteAyar" EntitySet="SiteAyars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_Kullanicilar" Association="burakModel.FK_Slider_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="Slider" EntitySet="Sliders" />
+    </AssociationSet>
+    <EntitySet Name="FooterLinklers" EntityType="burakModel.FooterLinkler" />
+    <AssociationSet Name="FK_FooterLinkler_Kullanicilar" Association="burakModel.FK_FooterLinkler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="FooterLinkler" EntitySet="FooterLinklers" />
+    </AssociationSet>
+    <EntitySet Name="AnaSayfas" EntityType="burakModel.AnaSayfa" />
+    <AssociationSet Name="FK_AnaSayfa_Kullanicilar" Association="burakModel.FK_AnaSayfa_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="AnaSayfa" EntitySet="AnaSayfas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Menuid" />
+    </Key>
+    <Property Name="Menuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Menulerid" Type="Int32" Nullable="false" />
+    <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Yazi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Menuaktif" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="Menutarih" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Menuler" Relationship="burakModel.FK_Menu_Menuler" FromRole="Menu" ToRole="Menuler" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_Menu_Kullanicilar" FromRole="Menu" ToRole="Kullanicilar" />
+  </EntityType>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="Kategorid" />
+    </Key>
+    <Property Name="Kategorid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kategoriAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KategoriYazi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KategoriResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KategoriAktif" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="Menulerid" Type="Int32" Nullable="false" />
+    <Property Name="KategorilerUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kategorilertarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Menuler" Relationship="burakModel.FK_Kategoriler_Menuler" FromRole="Kategoriler" ToRole="Menuler" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_Kategoriler_Kullanicilar" FromRole="Kategoriler" ToRole="Kullanicilar" />
+  </EntityType>
+  <EntityType Name="Menuler">
+    <Key>
+      <PropertyRef Name="Menulerid" />
+    </Key>
+    <Property Name="Menulerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MenuUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MenuTarih" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MenuAktif" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KategoriMi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MenuMi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kategorilers" Relationship="burakModel.FK_Kategoriler_Menuler" FromRole="Menuler" ToRole="Kategoriler" />
+    <NavigationProperty Name="Menus" Relationship="burakModel.FK_Menu_Menuler" FromRole="Menuler" ToRole="Menu" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_Menuler_Kullanicilar" FromRole="Menuler" ToRole="Kullanicilar" />
+  </EntityType>
+  <Association Name="FK_Kategoriler_Menuler">
+    <End Type="burakModel.Menuler" Role="Menuler" Multiplicity="1" />
+    <End Type="burakModel.Kategoriler" Role="Kategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuler">
+        <PropertyRef Name="Menulerid" />
+      </Principal>
+      <Dependent Role="Kategoriler">
+        <PropertyRef Name="Menulerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Menuler">
+    <End Type="burakModel.Menuler" Role="Menuler" Multiplicity="1" />
+    <End Type="burakModel.Menu" Role="Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuler">
+        <PropertyRef Name="Menulerid" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="Menulerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Sliderid" />
+    </Key>
+    <Property Name="Sliderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="SliderTarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SliderAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AkitfMi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SliderResimAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_Slider_Kullanicilar" FromRole="Slider" ToRole="Kullanicilar" />
+  </EntityType>
+  <EntityType Name="SiteAyar">
+    <Key>
+      <PropertyRef Name="SiteAyarid" />
+    </Key>
+    <Property Name="SiteAyarid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="SiteAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SiteLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiteMail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiteSmtp" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiteMailSifre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiteTelefon" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiteAdres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SiteİnfoMail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_SiteAyar_Kullanicilar" FromRole="SiteAyar" ToRole="Kullanicilar" />
+  </EntityType>
+  <EntityType Name="Hizmetler">
+    <Key>
+      <PropertyRef Name="Hizmetlerid" />
+    </Key>
+    <Property Name="Hizmetlerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="HizmetlerAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerYazi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerTarih" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerAktif" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerResim" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerAnahtar" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetKisaYazi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HizmetlerClass" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_Hizmetler_Kullanicilar" FromRole="Hizmetler" ToRole="Kullanicilar" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="kullanicid" />
+    </Key>
+    <Property Name="kullanicid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullaniciAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciAdiSoyadi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSifre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSifreTekrar" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciTarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KullaniciAktifmi" Type="Boolean" Nullable="false" />
+    <Property Name="KullaniciRolid" Type="Int32" Nullable="false" />
+    <Property Name="KullaniciEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciGuvenlik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciGuvenlikCevap" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciAdminRol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AdminRol" Relationship="burakModel.FK_Kullanicilar_AdminRol" FromRole="Kullanicilar" ToRole="AdminRol" />
+    <NavigationProperty Name="Hizmetlers" Relationship="burakModel.FK_Hizmetler_Kullanicilar" FromRole="Kullanicilar" ToRole="Hizmetler" />
+    <NavigationProperty Name="Kategorilers" Relationship="burakModel.FK_Kategoriler_Kullanicilar" FromRole="Kullanicilar" ToRole="Kategoriler" />
+    <NavigationProperty Name="Menus" Relationship="burakModel.FK_Menu_Kullanicilar" FromRole="Kullanicilar" ToRole="Menu" />
+    <NavigationProperty Name="Menulers" Relationship="burakModel.FK_Menuler_Kullanicilar" FromRole="Kullanicilar" ToRole="Menuler" />
+    <NavigationProperty Name="SiteAyars" Relationship="burakModel.FK_SiteAyar_Kullanicilar" FromRole="Kullanicilar" ToRole="SiteAyar" />
+    <NavigationProperty Name="Sliders" Relationship="burakModel.FK_Slider_Kullanicilar" FromRole="Kullanicilar" ToRole="Slider" />
+    <NavigationProperty Name="FooterLinklers" Relationship="burakModel.FK_FooterLinkler_Kullanicilar" FromRole="Kullanicilar" ToRole="FooterLinkler" />
+    <NavigationProperty Name="AnaSayfas" Relationship="burakModel.FK_AnaSayfa_Kullanicilar" FromRole="Kullanicilar" ToRole="AnaSayfa" />
+  </EntityType>
+  <Association Name="FK_Kullanicilar_AdminRol">
+    <End Type="burakModel.AdminRol" Role="AdminRol" Multiplicity="1" />
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminRol">
+        <PropertyRef Name="KullaniciRolid" />
+      </Principal>
+      <Dependent Role="Kullanicilar">
+        <PropertyRef Name="KullaniciRolid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hizmetler_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.Hizmetler" Role="Hizmetler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Hizmetler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kategoriler_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.Kategoriler" Role="Kategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Kategoriler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.Menu" Role="Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menuler_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.Menuler" Role="Menuler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Menuler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteAyar_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.SiteAyar" Role="SiteAyar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="SiteAyar">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.Slider" Role="Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FooterLinkler">
+    <Key>
+      <PropertyRef Name="Fid" />
+    </Key>
+    <Property Name="Fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="FLinkAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FLinkUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ftarih" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FAktifMi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_FooterLinkler_Kullanicilar" FromRole="FooterLinkler" ToRole="Kullanicilar" />
+  </EntityType>
+  <Association Name="FK_FooterLinkler_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.FooterLinkler" Role="FooterLinkler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="FooterLinkler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AnaSayfa">
+    <Key>
+      <PropertyRef Name="Anasayfaid" />
+    </Key>
+    <Property Name="Anasayfaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanicid" Type="Int32" Nullable="false" />
+    <Property Name="AnasayfaAdi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnasayfaİsimAciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnasayfaElektrik" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnasayfaElektrikAciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AHakkindaİsim" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AHakkindaAciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ADunyaİsim" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ADunyaAciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Atarih" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicilar" Relationship="burakModel.FK_AnaSayfa_Kullanicilar" FromRole="AnaSayfa" ToRole="Kullanicilar" />
+  </EntityType>
+  <Association Name="FK_AnaSayfa_Kullanicilar">
+    <End Type="burakModel.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="burakModel.AnaSayfa" Role="AnaSayfa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="AnaSayfa">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

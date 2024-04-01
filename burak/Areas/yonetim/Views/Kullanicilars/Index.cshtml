@@ -1,0 +1,43 @@
+﻿@model IEnumerable<veri.Kullanicilar>
+
+@{
+    ViewBag.Title = "Kullanıcılar";
+}
+
+
+
+<div class="container" style="background: #ffffff;border-top-width: 50px;padding-top: 50px;padding-bottom: 50px;">
+    <h2>Kullanıcılar</h2>
+    <br />
+    <p>
+        @Html.ActionLink("Yeni Kullanıcı Oluştur", "Create")
+    </p>
+    <hr />
+    <br />
+    <table id="datable_1" class="table table-hover display">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Kullanıcı Adı</th>
+                <th>Mail ADres</th>
+                <th>Rol</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.kullanicid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.kullaniciAdi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.KullaniciEmail)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AdminRol.RolAdi)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.kullanicid })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

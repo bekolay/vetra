@@ -1,0 +1,12 @@
+﻿@model IEnumerable<veri.Menuler>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a class="nav-link" title="@item.MenuAdi" href="~/@item.MenuAdi">@item.MenuAdi</a>
+    </li>
+}
+
+

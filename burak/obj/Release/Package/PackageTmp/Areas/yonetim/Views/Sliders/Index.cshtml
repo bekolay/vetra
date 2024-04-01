@@ -1,0 +1,39 @@
+﻿@model IEnumerable<veri.Slider>
+
+@{
+    ViewBag.Title = "Slider";
+}
+
+<div class="container" style="background: #ffffff;border-top-width: 50px;padding-top: 50px;padding-bottom: 50px;">
+    <h2>Slider</h2>
+    <br />
+    <p>
+        @Html.ActionLink("Yeni Slider Oluştur", "Create")
+    </p>
+    <hr />
+    <br />
+    <table id="datable_1" class="table table-hover display">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Slider Adı</th>
+                <th>Aktif</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Sliderid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SliderAdi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AkitfMi)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Sliderid })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

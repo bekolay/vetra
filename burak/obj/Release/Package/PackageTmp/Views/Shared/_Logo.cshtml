@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+@foreach (var item in burak.Models.Data.SiteAyar)
+{
+    if (item.SiteLogo == null)
+    {
+        <span>@item.SiteAdi</span>
+    }
+    else
+    {
+        <a class="navbar-brand me-2" href="/">
+            <img src="~/dosya/@item.SiteLogo"
+                 height="80"
+                 alt="@item.SiteAdi"
+                 loading="lazy"
+                 style="margin-top: -1px;" />
+        </a>
+    }
+
+}

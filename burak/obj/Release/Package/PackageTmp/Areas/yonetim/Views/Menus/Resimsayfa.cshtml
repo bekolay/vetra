@@ -1,0 +1,36 @@
+﻿@model IEnumerable<burak.Models.PageModel>
+
+
+@{
+    Layout = null;
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/ckeditor/config.js"></script>
+
+@foreach (var image in Model)
+{
+    <a href="#" class="returnImage" data-url="@Request.Url.GetLeftPart(UriPartial.Authority)@image.Url">
+        <img src="@image.Url" alt="indirtor" id="#image" data-source="@image.Url" width="200" height="200" />
+    </a>
+}
+<script type="text/javascript">
+    $(".returnImage").click("click", function (e) {
+
+        function getUrlParam(paramName) {
+            var reParam = new RegExp('(?:[\?&]|&)' + paramName + '=([^&]+)', 'i');
+            var match = window.location.search.match(reParam);
+
+            return (match && match.length > 1) ? match[1] : null;
+        }
+        var urlImage = $(this).attr("data-url");
+        var funcNum = getUrlParam('CKEditorFuncNum');
+
+        window.opener.CKEDITOR.tools.callFunction(funcNum, urlImage);
+        window.close();
+    });
+
+</script>

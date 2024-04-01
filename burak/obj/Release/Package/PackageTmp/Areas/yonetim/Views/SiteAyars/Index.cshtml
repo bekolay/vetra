@@ -1,0 +1,35 @@
+﻿@model IEnumerable<veri.SiteAyar>
+
+@{
+    ViewBag.Title = "Site Ayar";
+}
+
+<div class="container" style="background: #ffffff;border-top-width: 50px;padding-top: 50px;padding-bottom: 50px;">
+    <h2>Site Ayar</h2>
+    <hr />
+    <br />
+    <table id="datable_1" class="table table-hover display">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Site Adı</th>
+                <th>Mail Adres</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.SiteAyarid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SiteAdi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SiteMail)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.SiteAyarid })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

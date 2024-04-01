@@ -1,0 +1,37 @@
+﻿@model IEnumerable<veri.Menu>
+
+@{
+    ViewBag.Title = "Menüler";
+}
+
+
+<div class="container" style="background: #ffffff;border-top-width: 50px;padding-top: 50px;padding-bottom: 50px;">
+    <h2>Menüler</h2>
+    <br />
+    <hr />
+    <br />
+    <table id="datable_1" class="table table-hover display">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Menü Adı</th>
+                <th>Aktif Mi</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Menulerid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Menuler.MenuAdi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Menuaktif)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Menuid })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

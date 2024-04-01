@@ -1,0 +1,86 @@
+﻿@model veri.SiteAyar
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+
+
+    @using (Html.BeginForm("Edit", "SiteAyars", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.SiteAyarid)
+
+        <div class="form-horizontal">
+            <h2>Site Ayar Düzenle</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="bg-danger">
+                @TempData["Message"]
+            </div>
+            <br />
+            <br />
+
+            <div class="container">
+                <div>
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.SiteAdi, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", @placeholder = "Site Adı", @type = "text" } })
+                        </div>
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.SiteLogo, new { htmlAttributes = new { @type = "file", @accept = ".png,.jpg, .jpeg,/Hesap/", @id = "input-file-now-custom-1", @class = "dropify form-controlstyle" } })
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.SiteMail, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Site Mail", @type = "email" } })
+                        </div>
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.SiteMailSifre, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Mail Şifre", @type = "password" } })
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.SiteSmtp, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Site Smtp", @type = "text" } })
+                        </div>
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.SiteTelefon, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Telefon", @type = "number" } })
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-outline mb-4">
+
+                        @Html.EditorFor(model => model.SiteAdres, new { htmlAttributes = new { @class = "form-control boyut", size = "25", @required = "required", autofocus = "", @placeholder = "Adres", @type = "text" } })
+                    </div>
+                    <div class="form-outline mb-4">
+
+                        @Html.EditorFor(model => model.SiteİnfoMail, new { htmlAttributes = new { @class = "form-control boyut", size = "25", @required = "required", autofocus = "", @placeholder = "İnfo Mail", @type = "text" } })
+                    </div>
+                    <hr />
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            <div>
+                                <a href="~/yonetim/SiteAyars/" class="btn btn-primary btn-block mb-3">Geri Gel</a>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+
+                            <div class="form-group">
+                                <div class="">
+                                    <input type="submit" value="Düzenle" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    }
+
+
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<veri.FooterLinkler>
+
+@{
+    ViewBag.Title = "Footer Linkler";
+}
+
+<div class="container" style="background: #ffffff;border-top-width: 50px;padding-top: 50px;padding-bottom: 50px;">
+    <h2>Footer</h2>
+    <br />
+    <p>
+        @Html.ActionLink("Link Oluştur", "Create")
+    </p>
+    <hr />
+    <br />
+    <table id="datable_1" class="table table-hover display">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Footler Adi</th>
+                <th>Tarih</th>
+                <th>Aktif Mi</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Fid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FLinkAdi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ftarih)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FAktifMi)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Fid })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

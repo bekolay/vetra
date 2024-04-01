@@ -1,0 +1,92 @@
+﻿@model IEnumerable<veri.AnaSayfa>
+
+@{
+    ViewBag.Title = "Ana Sayfa";
+}
+
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @Html.Partial("_sliderbir", burak.Models.Data.slider)
+        @Html.Partial("_slideriki", burak.Models.Data.slideriki)
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<br />
+@foreach (var item in Model)
+{
+    <div class="p-1 p-md-4 mb-4 mb-lg-0">
+        <div class="card-body">
+            <h3 class="h3 text-center">@item.AnasayfaAdi</h3>
+            <p class="text-center">@item.AnasayfaİsimAciklama</p>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                <div class="box-part text-center">
+
+                    <i class="fa-solid fa-bolt fa-3x" aria-hidden="true"></i>
+
+                    <div class="title">
+                        <h4>@item.AnasayfaElektrik</h4>
+                    </div>
+
+                    <div class="text">
+                        <span>@item.AnasayfaElektrikAciklama</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                <div class="box-part text-center">
+
+                    <i class="fa-regular fa-address-card fa-3x" aria-hidden="true"></i>
+
+                    <div class="title">
+                        <h4>@item.AHakkindaİsim</h4>
+                    </div>
+
+                    <div class="text">
+                        <span>@item.AHakkindaAciklama</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                <div class="box-part text-center">
+
+                    <i class="fa-solid fa-earth-europe fa-3x" aria-hidden="true"></i>
+
+                    <div class="title">
+                        <h4>@item.ADunyaİsim</h4>
+                    </div>
+
+                    <div class="text">
+                        <span>@item.ADunyaAciklama</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="box">
+    <div class="container">
+        <div class="row">
+            @Html.Partial("_hizmet1", burak.Models.Data.hizmetler1)
+            @Html.Partial("_hizmet2", burak.Models.Data.hizmetler2)
+        </div>
+    </div>
+</div>

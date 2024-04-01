@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Html.Partial("_siteAdi", burak.Models.Data.SiteAyar)</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/datatable.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/8f34fc02d2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="~/yonetim">
+Admin Paneli
+            </a>
+
+            <!-- Toggle button -->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Gezintiyi aç/kapat" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+
+            @if (Request.IsAuthenticated)
+            {
+                <!-- Collapsible wrapper -->
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <!-- Container wrapper -->
+                        <div class="container-fluid">
+                            <!-- Toggle button -->
+                            <!-- Collapsible wrapper -->
+
+                            <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+                                <!-- Left links -->
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="~/yonetim">Anasayfa</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/yonetim/Kullanicilars/">Kullanıcılar</a>
+                                    </li>
+                                    <!-- Navbar dropdown -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Menüler
+                                        </a>
+                                        <!-- Dropdown menu -->
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <a class="dropdown-item" href="~/yonetim/Menulers">Menüler</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="~/yonetim/Menus">Menü</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="~/yonetim/Kategorilers">Kategoriler</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/yonetim/Sliders/">Slider</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/yonetim/FooterLinklers/">Footer Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/yonetim/hizmetlers/">Hizmetler</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/yonetim/SiteAyars/">Site Ayar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/yonetim/hesap/cikis">Çıkış Yap</a>
+                                    </li>
+                                </ul>
+                                <!-- Left links -->
+                            </div>
+                            <!-- Collapsible wrapper -->
+                        </div>
+                        <!-- Container wrapper -->
+                    </nav>
+                </div>
+                <!-- Collapsible wrapper -->
+            }
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+    <div class="">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 footerleft ">
+                        @Html.Partial("_footersiteayar", burak.Models.Data.SiteAyar)
+
+                    </div>
+                    <div class="col-md-4 col-sm-6 paddingtop-bottom ">
+                        <h6 class="heading7">Site İçi Bağlantılar</h6>
+                        <ul class="footer-ul">
+                            @Html.Partial("_linkler", burak.Models.Data.footer)
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--footer start from here-->
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables-data.js"></script>
+
+    <!-- ✅ load Bootstrap JS ✅ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
+
+
+
+
+    <script src="~/Scripts/Site.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,133 @@
+﻿@model veri.Kullanicilar
+
+@{
+    ViewBag.Title = "Kullanıcı Düzenle";
+}
+<div class="container">
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h2>Kullanıcı Düzenle</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.kullanicid)
+        @Html.HiddenFor(model => model.KullaniciTarih)
+        <div class="bg-danger">
+            @TempData["Message"]
+        </div>
+        <br />
+        <br />
+
+        <div class="container">
+            <div>
+                <div class="row mb-4">
+                    <div class="form-group col">
+                        @Html.EditorFor(model => model.kullaniciAdi, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", @placeholder = "Kullanıcı Adı", @type = "text" } })
+                    </div>
+                    <div class="form-group col">
+                        @Html.EditorFor(model => model.KullaniciAdiSoyadi, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", @placeholder = "Adı Soyadı", @type = "text" } })
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="form-group col">
+                        @Html.PasswordFor(model => model.KullaniciSifre, new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Şifre", @type = "password" })
+                    </div>
+                    <div class="form-group col">
+                        @Html.PasswordFor(model => model.KullaniciSifreTekrar, new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Şifre Tekrar", @type = "password" })
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="form-group col">
+                        @Html.EditorFor(model => model.KullaniciEmail, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Email Adresi", @type = "email" } })
+                    </div>
+                    <div class="form-group col">
+                        @Html.EditorFor(model => model.KullaniciGuvenlik, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", autofocus = "", @placeholder = "Güvenlik Sorusu", @type = "text" } })
+                    </div>
+                </div>
+                <!-- Text input -->
+                <div class="form-outline mb-4">
+                    @Html.EditorFor(model => model.KullaniciGuvenlikCevap, new { htmlAttributes = new { @class = "form-control boyut", size = "25", @required = "required", autofocus = "", @placeholder = "Güvenlik Cevap ", @type = "text" } })
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+
+                        <div class="form-group">
+                            <label>Kullanıcı Rol</label>
+                            <br />
+                            <div class="">
+                                @Html.DropDownList("KullaniciAdminRol", new List<SelectListItem> {
+                 new SelectListItem {
+                    Text="admin",
+                    Value="admin",
+                    // Selected = true, seçili olarak gelsin
+                    // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                 },
+                 new SelectListItem {
+                    Text="kullanici",
+                    Value="kullanici",
+                 },
+             }, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.KullaniciAdminRol, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="form-group">
+                            <br />
+                            <div class="checkbox">
+                                <div class="checkbox checkbox-info checkbox-circle">
+                                    @*@Html.CheckBoxFor(model => model.KullaniciAktifmi, new { htmlAttributes = new { @class = "form-check-input", @id = "flexSwitchCheckDefault" } })*@
+
+                                    @Html.DropDownList("KullaniciAktifmi",
+                    new List<SelectListItem> {
+                    new SelectListItem {
+                    Text="true",
+                    Value="true",
+                    // Selected = true, seçili olarak gelsin
+                    //Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                    },
+                    new SelectListItem {
+                    Text="false",
+                    Value="false",
+                    },
+                    })
+                                    <label class="col-sm-2 control-label">Aktif mi</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <hr />
+                <div class="row mb-4">
+                    <div class="form-group col">
+                        <div>
+                            <a href="~/yonetim/Kullanicilars/" class="btn btn-primary btn-block mb-3">Geri Gel</a>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+
+                        <div class="form-group">
+                            <div class="">
+                                <input type="submit" value="Düzenle" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    }
+
+
+</div>
+

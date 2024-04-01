@@ -1,0 +1,150 @@
+﻿@model veri.Hizmetler
+
+@{
+    ViewBag.Title = "Hizmet Düzenle";
+}
+
+<div class="container">
+
+
+    @using (Html.BeginForm("Edit", "hizmetlers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.HizmetlerTarih)
+        @Html.HiddenFor(model => model.Hizmetlerid)
+        <div class="form-horizontal">
+            <h2>Hizmet Düzenle</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="bg-danger">
+                @TempData["Message"]
+            </div>
+            <br />
+            <br />
+
+            <div class="container">
+                <div>
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.HizmetlerAdi, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", @placeholder = "Hizmetler Adı", @type = "text" } })
+                        </div>
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.HizmetlerResim, new { htmlAttributes = new { @type = "file", @accept = ".png,.jpg, .jpeg,/Hesap/", @id = "input-file-now-custom-1", @class = "dropify form-controlstyle" } })
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-outline mb-4">
+
+                        @Html.EditorFor(model => model.HizmetlerAnahtar, new { htmlAttributes = new { @class = "form-control boyut", size = "25", @required = "required", autofocus = "", @placeholder = "Anahtar Kelime", @type = "text" } })
+                    </div>
+                    <div class="form-outline mb-4">
+
+                        @Html.EditorFor(model => model.HizmetKisaYazi, new { htmlAttributes = new { @class = "form-control boyut", size = "25", @required = "required", autofocus = "", @placeholder = "Kısa Açıklama", @type = "text" } })
+                    </div>
+                    <div class="row mb-4">
+                        <div class="form-group">
+                            <label>Yazı</label>
+                            <br />
+                            <div class="">
+                                @Html.TextAreaFor(model => model.HizmetlerYazi, new { htmlAttributes = new { @class = "form-control mx-auto", size = "25", @required = "required", autofocus = "", @placeholder = "Kategori Yazı...", @type = "text" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group col">
+                            <br />
+                            <div class="form-group">
+                                <label>Kategori ?</label>
+                                <br />
+                                <div class="">
+                                    <div class="">
+                                        @Html.DropDownList("HizmetlerClass", new List<SelectListItem> {
+                         new SelectListItem {
+                            Text="Yangın",
+                            Value="<i class=\"fa-light fa-fire fa-3x\" style=\"color: #ff0000;\"></i>",
+                            // Selected = true, seçili olarak gelsin
+                            // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                         },
+                         new SelectListItem {
+                            Text="Hemşire",
+                            Value="<i class=\"fa-light  fa-user-nurse fa-3x\" style=\"color: #ff0000;\"></i>",
+                         },
+                        new SelectListItem {
+                           Text="Ses",
+                            Value="<i class=\"fa-light fa-volume-high fa-3x\" style=\"color: #ff0000;\"></i>",
+                        },
+                        new SelectListItem {
+                           Text="Sıralama",
+                            Value="<i class=\"fa-light fa-arrow-up-a-z fa-3x\" style=\"color: #ff0000;\"></i>",
+                        },
+                        new SelectListItem {
+                           Text="Kamera",
+                            Value="<i class=\"fa-light fa-video fa-3x\" style=\"color: #ff0000;\"></i>",
+                        },
+                        new SelectListItem {
+                           Text="Uydu",
+                            Value="<i class=\"fa-light fa-satellite-dish fa-3x\" style=\"color: #ff0000;\"></i>",
+                        },
+                        new SelectListItem {
+                           Text="Yangın Alarm",
+                            Value="<i class=\"fa-light fa-house-fire fa-3x\" style=\"color: #ff0000;\"></i>",
+                        },
+                     }, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <hr />
+                        <div class="row mb-4">
+                            <div class="form-group col">
+                                <div>
+                                    <a href="~/yonetim/hizmetlers/" class="btn btn-primary btn-block mb-3">Geri Gel</a>
+                                </div>
+                            </div>
+                            <div class="form-group col">
+
+                                <div class="form-group">
+                                    <div class="">
+                                        <input type="submit" value="Düzenle" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    }
+</div>
+@section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/config.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            CKEDITOR.replace('HizmetlerYazi', {
+                filebrowserBrowseUrl: '/yonetim/Menus/resimsayfa',
+                width: '737',
+                height: '280',
+                filebrowserFlashBrowseUrl: '~/images/'
+            });
+        });
+        function updateValue(id, value) {
+            var dialog = CKEDITOR.dialog.getCurrent();
+            dialog.setValueOf('info', 'txtUrl', value);
+        }
+
+    </script>
+}

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="burakModelStoreContainer" CdmEntityContainer="burakEntities">
+    <EntitySetMapping Name="AdminRols">
+      <EntityTypeMapping TypeName="burakModel.AdminRol">
+        <MappingFragment StoreEntitySet="AdminRol">
+          <ScalarProperty Name="KullaniciRolid" ColumnName="KullaniciRolid" />
+          <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+          <ScalarProperty Name="RolTarih" ColumnName="RolTarih" />
+          <ScalarProperty Name="RolAktifMi" ColumnName="RolAktifMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="burakModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Menutarih" ColumnName="Menutarih" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="Menuaktif" ColumnName="Menuaktif" />
+          <ScalarProperty Name="Yazi" ColumnName="Yazi" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+          <ScalarProperty Name="Menulerid" ColumnName="Menulerid" />
+          <ScalarProperty Name="Menuid" ColumnName="Menuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategorilers">
+      <EntityTypeMapping TypeName="burakModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="kategorilertarih" ColumnName="kategorilertarih" />
+          <ScalarProperty Name="KategorilerUrl" ColumnName="KategorilerUrl" />
+          <ScalarProperty Name="Menulerid" ColumnName="Menulerid" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="KategoriAktif" ColumnName="KategoriAktif" />
+          <ScalarProperty Name="KategoriResim" ColumnName="KategoriResim" />
+          <ScalarProperty Name="KategoriYazi" ColumnName="KategoriYazi" />
+          <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+          <ScalarProperty Name="Kategorid" ColumnName="Kategorid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menulers">
+      <EntityTypeMapping TypeName="burakModel.Menuler">
+        <MappingFragment StoreEntitySet="Menuler">
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="MenuMi" ColumnName="MenuMi" />
+          <ScalarProperty Name="KategoriMi" ColumnName="KategoriMi" />
+          <ScalarProperty Name="MenuAktif" ColumnName="MenuAktif" />
+          <ScalarProperty Name="MenuTarih" ColumnName="MenuTarih" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="MenuAdi" ColumnName="MenuAdi" />
+          <ScalarProperty Name="Menulerid" ColumnName="Menulerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sliders">
+      <EntityTypeMapping TypeName="burakModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="SliderResimAdi" ColumnName="SliderResimAdi" />
+          <ScalarProperty Name="AkitfMi" ColumnName="AkitfMi" />
+          <ScalarProperty Name="SliderAdi" ColumnName="SliderAdi" />
+          <ScalarProperty Name="SliderTarih" ColumnName="SliderTarih" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="Sliderid" ColumnName="Sliderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteAyars">
+      <EntityTypeMapping TypeName="burakModel.SiteAyar">
+        <MappingFragment StoreEntitySet="SiteAyar">
+          <ScalarProperty Name="SiteİnfoMail" ColumnName="SiteİnfoMail" />
+          <ScalarProperty Name="SiteAdres" ColumnName="SiteAdres" />
+          <ScalarProperty Name="SiteTelefon" ColumnName="SiteTelefon" />
+          <ScalarProperty Name="SiteMailSifre" ColumnName="SiteMailSifre" />
+          <ScalarProperty Name="SiteSmtp" ColumnName="SiteSmtp" />
+          <ScalarProperty Name="SiteMail" ColumnName="SiteMail" />
+          <ScalarProperty Name="SiteLogo" ColumnName="SiteLogo" />
+          <ScalarProperty Name="SiteAdi" ColumnName="SiteAdi" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="SiteAyarid" ColumnName="SiteAyarid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hizmetlers">
+      <EntityTypeMapping TypeName="burakModel.Hizmetler">
+        <MappingFragment StoreEntitySet="Hizmetler">
+          <ScalarProperty Name="HizmetlerClass" ColumnName="HizmetlerClass" />
+          <ScalarProperty Name="HizmetKisaYazi" ColumnName="HizmetKisaYazi" />
+          <ScalarProperty Name="HizmetlerAnahtar" ColumnName="HizmetlerAnahtar" />
+          <ScalarProperty Name="HizmetlerResim" ColumnName="HizmetlerResim" />
+          <ScalarProperty Name="HizmetlerAktif" ColumnName="HizmetlerAktif" />
+          <ScalarProperty Name="HizmetlerTarih" ColumnName="HizmetlerTarih" />
+          <ScalarProperty Name="HizmetlerYazi" ColumnName="HizmetlerYazi" />
+          <ScalarProperty Name="HizmetlerUrl" ColumnName="HizmetlerUrl" />
+          <ScalarProperty Name="HizmetlerAdi" ColumnName="HizmetlerAdi" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="Hizmetlerid" ColumnName="Hizmetlerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilars">
+      <EntityTypeMapping TypeName="burakModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="KullaniciAdminRol" ColumnName="KullaniciAdminRol" />
+          <ScalarProperty Name="KullaniciGuvenlikCevap" ColumnName="KullaniciGuvenlikCevap" />
+          <ScalarProperty Name="KullaniciGuvenlik" ColumnName="KullaniciGuvenlik" />
+          <ScalarProperty Name="KullaniciEmail" ColumnName="KullaniciEmail" />
+          <ScalarProperty Name="KullaniciRolid" ColumnName="KullaniciRolid" />
+          <ScalarProperty Name="KullaniciAktifmi" ColumnName="KullaniciAktifmi" />
+          <ScalarProperty Name="KullaniciTarih" ColumnName="KullaniciTarih" />
+          <ScalarProperty Name="KullaniciSifreTekrar" ColumnName="KullaniciSifreTekrar" />
+          <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+          <ScalarProperty Name="KullaniciAdiSoyadi" ColumnName="KullaniciAdiSoyadi" />
+          <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FooterLinklers">
+      <EntityTypeMapping TypeName="burakModel.FooterLinkler">
+        <MappingFragment StoreEntitySet="FooterLinkler">
+          <ScalarProperty Name="FAktifMi" ColumnName="FAktifMi" />
+          <ScalarProperty Name="Ftarih" ColumnName="Ftarih" />
+          <ScalarProperty Name="FLinkUrl" ColumnName="FLinkUrl" />
+          <ScalarProperty Name="FLinkAdi" ColumnName="FLinkAdi" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="Fid" ColumnName="Fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnaSayfas">
+      <EntityTypeMapping TypeName="burakModel.AnaSayfa">
+        <MappingFragment StoreEntitySet="AnaSayfa">
+          <ScalarProperty Name="Atarih" ColumnName="Atarih" />
+          <ScalarProperty Name="ADunyaAciklama" ColumnName="ADunyaAciklama" />
+          <ScalarProperty Name="ADunyaİsim" ColumnName="ADunyaİsim" />
+          <ScalarProperty Name="AHakkindaAciklama" ColumnName="AHakkindaAciklama" />
+          <ScalarProperty Name="AHakkindaİsim" ColumnName="AHakkindaİsim" />
+          <ScalarProperty Name="AnasayfaElektrikAciklama" ColumnName="AnasayfaElektrikAciklama" />
+          <ScalarProperty Name="AnasayfaElektrik" ColumnName="AnasayfaElektrik" />
+          <ScalarProperty Name="AnasayfaİsimAciklama" ColumnName="AnasayfaİsimAciklama" />
+          <ScalarProperty Name="AnasayfaAdi" ColumnName="AnasayfaAdi" />
+          <ScalarProperty Name="kullanicid" ColumnName="kullanicid" />
+          <ScalarProperty Name="Anasayfaid" ColumnName="Anasayfaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

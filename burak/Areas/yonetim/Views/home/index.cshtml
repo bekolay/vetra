@@ -1,0 +1,35 @@
+﻿@model IEnumerable<veri.AnaSayfa>
+
+@{
+    ViewBag.Title = "Anasayfa";
+}
+
+<div class="container" style="background: #ffffff;border-top-width: 50px;padding-top: 50px;padding-bottom: 50px;">
+    <h2>Ansayfa</h2>
+    <br />
+    <br />
+    <table id="datable_1" class="table table-hover display">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ansayfa İsim</th>
+                <th>Tarih</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Anasayfaid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ADunyaİsim)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Atarih)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Anasayfaid })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

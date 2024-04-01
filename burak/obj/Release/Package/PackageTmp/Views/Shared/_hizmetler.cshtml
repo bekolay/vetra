@@ -1,0 +1,17 @@
+﻿
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Hizmetler
+    </a>
+    <!-- Dropdown menu -->
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+        @foreach (var i in burak.Models.Data.hizmetler)
+        {
+            <li>
+                <a class="dropdown-item" href="~/hizmetler/@i.HizmetlerUrl">@i.HizmetlerAdi</a>
+            </li>
+        }
+    </ul>
+</li>
+

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<veri.Slider>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="carousel-item active" data-bs-interval="2000">
+        <img src="~/dosya/@item.SliderResimAdi" alt="@item.SliderResimAdi" class="resim d-block w-100" />
+    </div>
+}

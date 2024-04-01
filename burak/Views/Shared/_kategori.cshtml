@@ -1,0 +1,11 @@
+﻿@model IEnumerable<veri.Kategoriler>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+        <li>
+            <a class="dropdown-item" href="#">@item.kategoriAdi</a>
+        </li>
+}

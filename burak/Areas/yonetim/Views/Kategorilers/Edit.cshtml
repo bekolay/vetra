@@ -1,0 +1,167 @@
+﻿@model veri.Kategoriler
+
+@{
+    ViewBag.Title = "Kategori Düzenle";
+}
+
+
+<script>
+    $(document).ready(function () {
+        $('#btnUpload').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                $.ajax({
+                    url: '/yonetim/menus/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        alert(result);
+                    },
+
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+</script>
+
+
+<div class="container">
+
+
+    @using (Html.BeginForm("Edit", "Kategorilers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="form-horizontal">
+            <h2>Kategori Düzenle</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.kategorilertarih)
+            @Html.HiddenFor(model => model.Kategorid)
+
+            <div class="bg-danger">
+                @TempData["Message"]
+            </div>
+            <br />
+            <br />
+
+            <div class="container">
+                <div>
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            @Html.EditorFor(model => model.KategoriResim, new { htmlAttributes = new { @type = "file", @accept = ".png,.jpg, .jpeg,/Hesap/", @id = "input-file-now-custom-1", @class = "dropify form-controlstyle" } })
+
+                        </div>
+                        <div class="form-group col">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.kategoriAdi, new { htmlAttributes = new { @class = "form-control", size = "25", @required = "required", @placeholder = "Kullanıcı Adı", @type = "text" } })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="form-group">
+                            <label>Yazı</label>
+                            <br />
+                            <div class="">
+                                @Html.TextAreaFor(model => model.KategoriYazi, new { htmlAttributes = new { @class = "form-control mx-auto", size = "25", @required = "required", autofocus = "", @placeholder = "Şifreniz...", @type = "text" } })
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="form-group col">
+                                <label>Aktif Mi ?</label>
+                                <br />
+                                <div class="">
+                                    @Html.DropDownList("KategoriAktif", new List<SelectListItem> {
+                     new SelectListItem {
+                        Text="true",
+                        Value="true",
+                        // Selected = true, seçili olarak gelsin
+                        // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                     },
+                     new SelectListItem {
+                        Text="false",
+                        Value="false",
+                     },
+                 }, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col">
+                                <div class="form-group">
+                                    <label>Kategori ?</label>
+                                    <br />
+                                    <div class="">
+
+                                        @Html.DropDownList("Menulerid", (IEnumerable<SelectListItem>)ViewBag.Accounts, null, new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row mb-4">
+                        <div class="form-group col">
+                            <div>
+                                <a href="~/yonetim/Kategorilers/" class="btn btn-primary btn-block mb-3">Geri Gel</a>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+
+                            <div class="form-group">
+                                <div class="">
+                                    <input type="submit" value="Düzenle" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    }
+
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/config.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            CKEDITOR.replace('KategoriYazi', {
+                filebrowserBrowseUrl: '/yonetim/Menus/resimsayfa',
+                width: '737',
+                height: '280',
+                filebrowserFlashBrowseUrl: '~/images/'
+            });
+        });
+        function updateValue(id, value) {
+            var dialog = CKEDITOR.dialog.getCurrent();
+            dialog.setValueOf('info', 'txtUrl', value);
+        }
+
+    </script>
+}

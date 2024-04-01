@@ -1,0 +1,29 @@
+﻿@model IEnumerable<veri.Kategoriler>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in burak.Models.Data.kategorimi1)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            @item.MenuAdi
+        </a>
+        <!-- Dropdown menu -->
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+            @foreach (var i in burak.Models.Data.deneme)
+            {
+                if (item.Menulerid == i.Menulerid)
+                {
+
+                    <li>
+                        <a class="dropdown-item" href="~/kategoriler/@i.KategorilerUrl">@i.kategoriAdi</a>
+                    </li>
+                }
+
+            }
+        </ul>
+    </li>
+}

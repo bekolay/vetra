@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+@foreach (var item in burak.Models.Data.hizmetler2)
+{
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+        <div class="box-part text-center cizgi">
+
+            @Html.Raw(item.HizmetlerClass)
+
+            <div class="title">
+                <h4>@item.HizmetlerAdi</h4>
+            </div>
+
+            <div class="text">
+                <span>@item.HizmetKisaYazi</span>
+            </div>
+
+            <a href="~/hizmetler/@item.HizmetlerUrl" title="@item.HizmetlerAdi">Devamını Oku</a>
+
+        </div>
+    </div>
+}
+
+
+
+
+

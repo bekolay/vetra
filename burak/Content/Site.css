@@ -1,0 +1,311 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.cizgi {
+    border-top: 1px solid;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Berkay*/
+
+.boyut {
+    max-width: 73% !important;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
+footer {
+    background-color: #0c1a1e;
+    min-height: 350px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footerleft {
+    margin-top: 50px;
+    padding: 0 36px;
+}
+
+.logofooter {
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.footerleft p {
+    color: #fff;
+    font-size: 12px !important;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+}
+
+    .footerleft p i {
+        width: 20px;
+        color: #999;
+    }
+
+
+.paddingtop-bottom {
+    margin-top: 50px;
+}
+
+.footer-ul {
+    list-style-type: none;
+    padding-left: 0px;
+    margin-left: 2px;
+}
+
+    .footer-ul li {
+        line-height: 29px;
+        font-size: 12px;
+    }
+
+        .footer-ul li a {
+            color: #a0a3a4;
+            transition: color 0.2s linear 0s, background 0.2s linear 0s;
+        }
+
+    .footer-ul i {
+        margin-right: 10px;
+    }
+
+    .footer-ul li a:hover {
+        transition: color 0.2s linear 0s, background 0.2s linear 0s;
+        color: #ff670f;
+    }
+
+.social:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+
+
+
+.icon-ul {
+    list-style-type: none !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+    .icon-ul li {
+        line-height: 75px;
+        width: 100%;
+        float: left;
+    }
+
+.icon {
+    float: left;
+    margin-right: 5px;
+}
+
+
+.copyright {
+    min-height: 40px;
+    background-color: #000000;
+}
+
+    .copyright p {
+        text-align: left;
+        color: #FFF;
+        padding: 10px 0;
+        margin-bottom: 0px;
+    }
+
+.heading7 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #d9d6d6;
+    margin-bottom: 22px;
+}
+
+.post p {
+    font-size: 12px;
+    color: #FFF;
+    line-height: 20px;
+}
+
+    .post p span {
+        display: block;
+        color: #8f8f8f;
+    }
+
+.bottom_ul {
+    list-style-type: none;
+    float: right;
+    margin-bottom: 0px;
+}
+
+    .bottom_ul li {
+        float: left;
+        line-height: 40px;
+    }
+
+        .bottom_ul li:after {
+            content: "/";
+            color: #FFF;
+            margin-right: 8px;
+            margin-left: 8px;
+        }
+
+        .bottom_ul li a {
+            color: #FFF;
+            font-size: 12px;
+        }
+
+
+
+/*Menüler*/
+
+
+.aboutus-area {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/*-- aboutus Image --*/
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .aboutus-image {
+        margin-right: 35px;
+        width: 345px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .aboutus-image {
+        margin-bottom: 30px;
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .aboutus-image {
+        margin-bottom: 30px;
+        margin-right: 0;
+        float: none;
+        width: auto;
+    }
+
+    .hidden-sm {
+        display: block !important;
+        width: 340px;
+        height: 85%;
+    }
+}
+
+.resim {
+    height: 800px;
+    width: 96%;
+}
+
+.aboutus-image img {
+    height: 500px;
+    width: 96%;
+}
+
+/*-- aboutus Content --*/
+.aboutus-content h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 40px;
+    margin-bottom: 2px;
+}
+
+@media only screen and (max-width: 479px) {
+    .aboutus-content h2 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+}
+
+.aboutus-content h2 span {
+    color: #71b100;
+}
+
+.aboutus-content h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #9b9b9b;
+    margin-bottom: 23px;
+}
+
+.aboutus-content p {
+    font-size: 16px;
+    line-height: 27px;
+}
+
+/*-- counter --*/
+.single-counter {
+    border: none;
+    margin-top: 32px;
+    float: left;
+    width: 100%;
+}
+
+.single-counter {
+    float: left;
+    width: 25%;
+    padding: 28px 15px 28px;
+}
+
+@media only screen and (max-width: 767px) {
+    .counter .single-counter {
+        width: 50%;
+    }
+
+        .counter .single-counter + .single-counter {
+            border-left: none
+        }
+
+        .counter .single-counter h2 {
+            font-size: 30px;
+            color: #71b100;
+            line-height: 24px;
+            font-family: "Open Sans", sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .counter .single-counter p {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0;
+            color: #8f8f8f;
+        }
+}
+
+.box {
+    padding: 60px 0px;
+}
+
+.box-part {
+    background: #FFF;
+    border-radius: 0;
+    padding: 60px 10px;
+    margin: 30px 0px;
+}
+
+.text {
+    margin: 20px 0px;
+}
+
+.fa {
+    color: #4183D7;
+}

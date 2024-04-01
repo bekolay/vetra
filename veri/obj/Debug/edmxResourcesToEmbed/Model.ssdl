@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="burakModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminRol">
+    <Key>
+      <PropertyRef Name="KullaniciRolid" />
+    </Key>
+    <Property Name="KullaniciRolid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RolTarih" Type="datetime" Nullable="false" />
+    <Property Name="RolAktifMi" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnaSayfa">
+    <Key>
+      <PropertyRef Name="Anasayfaid" />
+    </Key>
+    <Property Name="Anasayfaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="AnasayfaAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AnasayfaİsimAciklama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AnasayfaElektrik" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AnasayfaElektrikAciklama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AHakkindaİsim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AHakkindaAciklama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ADunyaİsim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ADunyaAciklama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Atarih" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FooterLinkler">
+    <Key>
+      <PropertyRef Name="Fid" />
+    </Key>
+    <Property Name="Fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="FLinkAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FLinkUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ftarih" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FAktifMi" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hizmetler">
+    <Key>
+      <PropertyRef Name="Hizmetlerid" />
+    </Key>
+    <Property Name="Hizmetlerid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="HizmetlerAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetlerUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetlerYazi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetlerTarih" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetlerAktif" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HizmetlerResim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetlerAnahtar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetKisaYazi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HizmetlerClass" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="Kategorid" />
+    </Key>
+    <Property Name="Kategorid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kategoriAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KategoriYazi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KategoriResim" Type="nvarchar(max)" />
+    <Property Name="KategoriAktif" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="Menulerid" Type="int" Nullable="false" />
+    <Property Name="KategorilerUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kategorilertarih" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="kullanicid" />
+    </Key>
+    <Property Name="kullanicid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciAdiSoyadi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciSifre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciSifreTekrar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciTarih" Type="datetime" Nullable="false" />
+    <Property Name="KullaniciAktifmi" Type="bit" Nullable="false" />
+    <Property Name="KullaniciRolid" Type="int" Nullable="false" />
+    <Property Name="KullaniciEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciGuvenlik" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciGuvenlikCevap" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciAdminRol" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Menuid" />
+    </Key>
+    <Property Name="Menuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Menulerid" Type="int" Nullable="false" />
+    <Property Name="Resim" Type="nvarchar(max)" />
+    <Property Name="Yazi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Menuaktif" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="Menutarih" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menuler">
+    <Key>
+      <PropertyRef Name="Menulerid" />
+    </Key>
+    <Property Name="Menulerid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuTarih" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuAktif" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KategoriMi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MenuMi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteAyar">
+    <Key>
+      <PropertyRef Name="SiteAyarid" />
+    </Key>
+    <Property Name="SiteAyarid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="SiteAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SiteLogo" Type="nvarchar(max)" />
+    <Property Name="SiteMail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteSmtp" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteMailSifre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteTelefon" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteAdres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SiteİnfoMail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Sliderid" />
+    </Key>
+    <Property Name="Sliderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanicid" Type="int" Nullable="false" />
+    <Property Name="SliderTarih" Type="datetime" Nullable="false" />
+    <Property Name="SliderAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AkitfMi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SliderResimAdi" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AnaSayfa_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="AnaSayfa" Type="Self.AnaSayfa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="AnaSayfa">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FooterLinkler_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="FooterLinkler" Type="Self.FooterLinkler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="FooterLinkler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hizmetler_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Hizmetler" Type="Self.Hizmetler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Hizmetler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kategoriler_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Kategoriler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kategoriler_Menuler">
+    <End Role="Menuler" Type="Self.Menuler" Multiplicity="1" />
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuler">
+        <PropertyRef Name="Menulerid" />
+      </Principal>
+      <Dependent Role="Kategoriler">
+        <PropertyRef Name="Menulerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanicilar_AdminRol">
+    <End Role="AdminRol" Type="Self.AdminRol" Multiplicity="1" />
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminRol">
+        <PropertyRef Name="KullaniciRolid" />
+      </Principal>
+      <Dependent Role="Kullanicilar">
+        <PropertyRef Name="KullaniciRolid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Menuler">
+    <End Role="Menuler" Type="Self.Menuler" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menuler">
+        <PropertyRef Name="Menulerid" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="Menulerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menuler_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Menuler" Type="Self.Menuler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Menuler">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteAyar_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="SiteAyar" Type="Self.SiteAyar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="SiteAyar">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="kullanicid" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="kullanicid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="burakModelStoreContainer">
+    <EntitySet Name="AdminRol" EntityType="Self.AdminRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnaSayfa" EntityType="Self.AnaSayfa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FooterLinkler" EntityType="Self.FooterLinkler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hizmetler" EntityType="Self.Hizmetler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menuler" EntityType="Self.Menuler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteAyar" EntityType="Self.SiteAyar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AnaSayfa_Kullanicilar" Association="Self.FK_AnaSayfa_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="AnaSayfa" EntitySet="AnaSayfa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FooterLinkler_Kullanicilar" Association="Self.FK_FooterLinkler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="FooterLinkler" EntitySet="FooterLinkler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hizmetler_Kullanicilar" Association="Self.FK_Hizmetler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Hizmetler" EntitySet="Hizmetler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kategoriler_Kullanicilar" Association="Self.FK_Kategoriler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kategoriler_Menuler" Association="Self.FK_Kategoriler_Menuler">
+      <End Role="Menuler" EntitySet="Menuler" />
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanicilar_AdminRol" Association="Self.FK_Kullanicilar_AdminRol">
+      <End Role="AdminRol" EntitySet="AdminRol" />
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Kullanicilar" Association="Self.FK_Menu_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Menuler" Association="Self.FK_Menu_Menuler">
+      <End Role="Menuler" EntitySet="Menuler" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menuler_Kullanicilar" Association="Self.FK_Menuler_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Menuler" EntitySet="Menuler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteAyar_Kullanicilar" Association="Self.FK_SiteAyar_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="SiteAyar" EntitySet="SiteAyar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_Kullanicilar" Association="Self.FK_Slider_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Slider" EntitySet="Slider" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
